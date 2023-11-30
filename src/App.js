@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-//import { BrowserRouter as Router,
- // Route,Link, Routes, BrowserRouter} from "react-router-dom";
+import { BrowserRouter as Router,
+  Route,Link, Routes, BrowserRouter} from "react-router-dom";
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-//import About from './components/about';
+import About from './components/about';
 import Alert from './components/alert';
 
 
@@ -37,15 +37,16 @@ function App() {
 }
   return (
   <>
-  
+<BrowserRouter>
   <Navbar title="TextUtiles" mode={mode} togglemode={togglemode}/>
   <Alert alert={alert}/>
-   
-     <TextForm showalert={showalert} heading="Enter the text to anaylyze" mode={mode} />
-  
+  <Routes>
+   <Route path="/" element={ <TextForm showalert={showalert} heading="Enter the text to anaylyze" mode={mode} />}/>
+  <Route path="/About" element={<About/>}/>
    
 
-  
+  </Routes>
+  </BrowserRouter>
  
 </>
  );
