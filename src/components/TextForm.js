@@ -44,14 +44,14 @@ export default function TextForm(props){
     <label for="exampleInputEmail1">Text Box</label>
     <textarea  className="form-control" id="myBox" style={{backgroundColor: props.mode==='light'?'white':'grey',color : props.mode==='dark'?'white':'black'}} value={text} onChange={handlechange} />
     </div>
-    <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to UpperCase</button>
-    <button className='btn btn-primary mx-2' onClick={handleloClick}>Convert to UpperCase</button>
-    <button className='btn btn-primary mx-2' onClick={handleclearClick}>Clear</button>
-    <button className='btn btn-primary mx-2' onClick={handlecopy}>Copy text</button>
+    <button className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to UpperCase</button>
+    <button className='btn btn-primary mx-2 my-1' onClick={handleloClick}>Convert to UpperCase</button>
+    <button className='btn btn-primary mx-2 my-1' onClick={handleclearClick}>Clear</button>
+    <button className='btn btn-primary mx-2 my-1' onClick={handlecopy}>Copy text</button>
   </div>
   <div className='container'  style= {{color : props.mode==='dark'?'white':'black'}}>
 <h1>Your text Summary</h1>
-<h3>your words {text.split(" ").length} and characters {text.length}</h3>
+<h3>your words {text.split(" ").filter((element)=>{return element.length!==0}).length} and characters {text.length}</h3>
 <h3>
     {0.008*text.split(" ").length}minutes to read words
 </h3>
